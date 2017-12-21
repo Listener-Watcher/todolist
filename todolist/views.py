@@ -47,7 +47,7 @@ def marked(request):
 			item_marked=form.cleaned_data['finished']
 			item_title=form.cleaned_data['title']
 			item = Item.objects.get(title=item_title)
-			item.finished=item_finished
+			item.finished=item_marked
 			item.save()
 			return redirect('/todolist/index')
 		else:
