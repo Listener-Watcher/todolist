@@ -1,0 +1,48 @@
+{%include 'base/header.html'%}
+<style>
+h2 {
+	color:green;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+ 
+li {
+    float: left;
+}
+ 
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+</style>
+<ul>
+	<li><a href="/todolist/add" >Add</a>
+	<li><a href="/todolist/delete">Delete</a>
+	<li><a href="/todolist/edit">EditText</a>
+	<li><a href="/todolist/changetime">EditTime</a>
+	<li><a href="/todolist/marked">Mark</a>
+</ul>
+{% for x in items %}
+<h2>
+title:{{x.title}}
+</h2>
+<p class="time">
+time:{{x.createdTime|date:"D d M Y"}}
+</p>
+<p>text:{{x.text}}</p>
+{% if x.finished %}
+	<p> finished </p>
+{%else%}
+	<p> unfinished </p>
+{%endif%}
+<hr />
+{%endfor%}
+{%include 'base/footer.html'%}

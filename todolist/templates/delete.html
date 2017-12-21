@@ -1,0 +1,9 @@
+{%include 'base/header.html'%}
+<form action="{%url 'delete' %}" method="post">
+{%csrf_token%}
+{{form}}
+<br><br>
+<input type="submit" value="delete">
+</form>
+<a href="/todolist/index">Return</a>
+{%include 'base/footer.html'%}

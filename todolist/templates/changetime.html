@@ -1,0 +1,10 @@
+{%include 'base/header.html'%}
+<form action="{%url 'changetime' %}" method="post">
+{%csrf_token%}
+<h2>To edit, enter the title of the list you want to change:</h2>
+{{form}}
+<br><br>
+<input type="submit" value="edit">
+</form>
+<a href="/todolist/index">Return</a>
+{%include 'base/footer.html'%}
