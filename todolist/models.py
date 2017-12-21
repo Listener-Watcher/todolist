@@ -5,12 +5,16 @@ PRIORITY_CHOICES = (
 	(0,'Urgent'),
 	(1,'Normal'),
 )
+STATUS_CHOICES = (
+	(0,'Unfinished'),
+	(1,'finished'),
+)
 class Item(models.Model):
 	title = models.CharField(max_length=100,primary_key=True)
 	text = models.TextField()
 	createdTime = models.DateTimeField()
 	priority = models.IntegerField(choices=PRIORITY_CHOICES,default=1)
-	finished = models.BooleanField(default=False)
+	finished = models.IntegerField(choices=STATUS_CHOICES,default=0)
 	
 	def __unicode__(self):
 		return self.title
